@@ -1,22 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-
+const base = require('./webpack.config.base.js');
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist'
-  },
-  output: {
-    filename: 'index.[contenthash].js'
-  },
+  ...base,
   plugins: [
-    new HtmlWebpackPlugin({
-      title: '东芝',
-      template: './src/assets/index.html'
-    }),
+    ...base.plugins,
     new MiniCssExtractPlugin({
       // 类似 webpackOptions.output里面的配置 可以忽略
       filename: '[name].[contenthash].css',
