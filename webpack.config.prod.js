@@ -11,6 +11,7 @@ module.exports = {
       // 类似 webpackOptions.output里面的配置 可以忽略
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css',
+      ignoreOrder:false,
     }),
   ],
   module: {
